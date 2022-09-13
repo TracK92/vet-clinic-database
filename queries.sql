@@ -2,7 +2,7 @@
 
 SELECT * FROM animals WHERE name LIKE '%mon';
 
-SELECT * FROM animals WHERE date_of_birth BETWEEN date '01-01-2016' AND date '01-01-2019';
+SELECT * FROM animals WHERE date_of_birth BETWEEN date '2016-01-01' AND date '2019-01-01';
 
 SELECT * FROM animals WHERE neutered=true AND escape_attempts < 3;
 
