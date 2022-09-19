@@ -101,15 +101,7 @@ CREATE TABLE visits (
   date_of_visit DATE NOT NULL
 );
 
--- CREATE INDEXES FOR ANIMAL_ID, VET_ID AND EMAIL
--- create new table animals_visists_number
-CREATE TABLE animals_visits_number(
-  id INT GENERATED ALWAYS AS IDENTITY,
-  animal_id INT,
-  count INT,
-  CONSTRAINT fk_animals FOREIGN KEY (animal_id) REFERENCES animals(id) ON DELETE CASCADE
-);
-
+-- CREATE INDEXES FOR VET_ID AND EMAIL
 -- create index for vet_id
 CREATE INDEX visits_vet_id_asc ON visits(vet_id ASC);
 
