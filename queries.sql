@@ -384,3 +384,6 @@ FROM
   owners
 where
   email = 'owner_18327@mail.com';
+
+--phase 5
+SELECT count FROM animals_visits_number where animal_id = 4;
