@@ -397,3 +397,9 @@ INSERT INTO
   visits (animal_id, vet_id, date_of_visit)
 VALUES
   (10, 1, date '2021-01-11');
+
+-- INSERT DATA INTO ANIMALS VISITS TABLE
+INSERT INTO
+  animals_visits_number (animal_id, count)
+VALUES
+  (4, 1797141);
