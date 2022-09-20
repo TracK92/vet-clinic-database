@@ -9,10 +9,11 @@ CREATE TABLE patients
 -- medical histories table
 CREATE TABLE medical_histories
 (
-    id          INT GENERATED ALWAYS AS IDENTITY NOT NULL PRIMARY KEY,
-    admitted_at TIMESTAMP                        NOT NULL,
-    patient_id  INT                              NOT NULL,
-    status      VARCHAR(20)                      NOT NULL
+    id          INT GENERATED ALWAYS AS IDENTITY               NOT NULL PRIMARY KEY,
+    admitted_at TIMESTAMP                                      NOT NULL,
+    patient_id  INT REFERENCES patients (id) ON DELETE CASCADE NOT NULL,
+    status      VARCHAR(20)                                    NOT NULL
+
 );
 
 -- treatments table
@@ -34,13 +35,20 @@ CREATE TABLE invoices
 );
 
 -- invoice_items table
-CREATE TABLE invoices_items(
-    id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
-    unit_price DECIMAL,
-    quantity INT,
-    total_price DECIMAL,
-    invoice_id INT,
-    treatment_id INT
+CREATE TABLE invoices_items
+(
+    id           INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY NOT NULL,
+    unit_price   DECIMAL,
+    quantity     INT,
+    total_price  DECIMAL,
+    invoice_id   INT REFERENCES invoices (id) ON DELETE CASCADE,
+    treatment_id INT REFERENCES treatments (id) ON DELETE CASCADE
+);
+-- table created from a many to many relationships between medical_histories and treatments
+CREATE TABLE medical_histories_treatments
+(
+    id                 INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY NOT NULL,
+    medical_history_id INT REFERENCES medical_histories (id) ON DELETE CASCADE,
+    treatment_id       INT REFERENCES treatments (id) ON DELETE CASCADE
 )
-
 
