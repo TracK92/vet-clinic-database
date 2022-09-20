@@ -367,3 +367,23 @@ ORDER BY
   COUNT(*) DESC
 LIMIT
   1;
+
+-- EXPLAIN ANALYZE - REDUCE EXECUTION TIME FOR THE FOLLOWING QUERIES
+-- Select all visits for vet number 2
+SELECT
+  *
+FROM
+  visits
+where
+  vet_id = 2;
+
+-- select owner with the following email address
+SELECT
+  *
+FROM
+  owners
+where
+  email = 'owner_18327@mail.com';
+
+--phase 5
+SELECT count FROM animals_visits_number where animal_id = 4;
