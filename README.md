@@ -5,7 +5,7 @@
 > Description of the project: A relational database that creates the data structure for a vet clinic. The database contains data about animals, animals' owners, clinic employees and visits. 
 
 ## Built With
-
+- plpqSQL
 
 ## Getting started
 
